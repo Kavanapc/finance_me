@@ -19,5 +19,17 @@ stages{
      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/FinanceMe/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
          }
       } 
+  stage('docker image'){
+   steps{
+     sh'docker build -t kavanapc/finance_me:latest .'
+        }
+     }
+  stage('docker login'){
+    steps{
+       withCredentials([usernamePassword(credentialsId: 'dockerlogin', passwordVariable: 'passwd', usernameVariable: 'dockerhub')]) {
+        sh "docker login -u ${env.dockerlogin} -p ${env.passwrd}"
+                                      }
+                   }
+      }
 }
 } 
