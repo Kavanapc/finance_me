@@ -27,7 +27,7 @@ stages{
   stage('docker login'){
     steps{
        withCredentials([usernamePassword(credentialsId: 'dockerlogin', passwordVariable: 'passwd', usernameVariable: 'dockerhub')]) {
-        sh "docker login -u ${env.dockerlogin} -p ${env.passwrd}"
+        sh "docker login -u ${env.dockerlogin} -p ${env.passwd}"
                                       }
                    }
       }
