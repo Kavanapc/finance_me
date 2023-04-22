@@ -31,5 +31,11 @@ stages{
                                       }
                    }
       }
+  stage('docker push'){
+   steps{
+    sh 'docker push kavanapc/finance_me:latest'
+        }
+    }
+  
 }
 } 
