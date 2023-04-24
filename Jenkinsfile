@@ -36,6 +36,13 @@ stages{
     sh 'docker push kavanapc/finance_me:latest'
         }
     }
-  
+ stage('create infra with terraform'){
+  steps{
+    sh 'sudo chmod 600 kavanapc2023.ppk'
+    sh 'terraform init'
+    sh 'terraform validate'
+    sh 'terraform apply --auto-approve'
+    }
+ } 
 }
 } 
