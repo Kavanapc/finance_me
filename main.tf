@@ -3,7 +3,7 @@ locals {
  subnet_id = "subnet-010e03a7844f9d355"
  ssh_user = "ubuntu"
  key_name = "kavanapc2023"
- private_key_path = file("./kavanapc2023.ppk")
+ private_key_path = file("/opt/star-agile-banking-finance/kavanapc2023.ppk")
  }
 
 provider "aws" {
