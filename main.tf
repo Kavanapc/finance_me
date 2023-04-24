@@ -1,5 +1,5 @@
 resource "aws_instance" "test-server" {
-  ami           = "ami-007855ac798b5175e" 
+  ami           = "ami-02eb7a4783e7e9317" 
   instance_type = "t2.micro" 
   key_name = "kavanapc2023"
   vpc_security_group_ids =["sg-071945e4647bcf16f"]
@@ -19,6 +19,6 @@ resource "aws_instance" "test-server" {
         command = " echo ${aws_instance.test-server.public_ip} > inventory "
   }
    provisioner "local-exec" {
-  command = "ansible-playbook /var/lib/jenkins/workspace/<Replace-jenkins-project-name>/test-server/finance-playbook.yml "
+  command = "ansible-playbook /var/lib/jenkins/workspace/<Replace-jenkins-project-name>/test-server/ banking.yml  "
   } 
 }
