@@ -3,6 +3,7 @@ agent any
 tools{
 terraform 'terraform'
     }
+stages{
 stage('create infra with terraform'){
  steps{
    sh 'chmod 600 kavanapc2023.ppk'
@@ -11,4 +12,5 @@ stage('create infra with terraform'){
    sh 'terraform apply --auto-approve'
       }
   }
+}
 }
