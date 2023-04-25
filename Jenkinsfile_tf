@@ -4,6 +4,11 @@ tools{
 terraform 'terraform'
     }
 stages{
+stage('source code'){
+ steps{
+   git 'https://github.com/Kavanapc/finance_me.git'
+   }
+}
 stage('create infra with terraform'){
  steps{
    sh 'chmod 600 kavanapc2023.pem'
