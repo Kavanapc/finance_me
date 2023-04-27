@@ -3,7 +3,7 @@ resource "aws_instance" "test-server" {
   instance_type = "t2.micro"
   key_name = "aws_key"
   vpc_security_group_ids =["sg-071945e4647bcf16f"]
-  }
+  
   tags = {
     Name = "test-server"
     }
@@ -23,3 +23,4 @@ resource "aws_instance" "test-server" {
  provisioner "local-exec" {
   command = "ansible-playbook /var/lib/jenkins/workspace/FinanceMe/banking.yml "
               }
+}
